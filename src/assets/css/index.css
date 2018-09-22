@@ -1,0 +1,192 @@
+.container {
+  position: relative;
+  width: 7.5rem;
+  margin: 0 auto;
+}
+.top-title {
+margin: 0 auto;
+height: 3.4rem;
+width: 100%;
+background-image: url('../../../static/images/Bitmap.png');
+color: #fff;
+}
+.top-container {
+width:5.9rem;
+height: 1.7rem;
+margin: 0 auto;
+padding-top: 1rem;
+}
+.top-container img {
+width:100%;
+height: 100%
+}
+/* recharge部分 */
+.recharge {
+margin: 0 auto;
+width: 6.1rem;
+margin-top: .2rem;
+}
+.account {
+display: inline-block;
+font-size: 0.28rem;
+font-weight: Medium;
+line-height: 0.28rem;
+margin-bottom: 0.16rem;
+margin-top: 0.5rem;
+}
+.info {
+overflow: hidden;
+}
+.account-input {
+/* position: relative; */
+line-height: 0.88rem;
+width: 5.38rem;
+height: 0.88rem;
+padding: 0 0.3rem;
+border: 0.01rem solid rgb(194,194,194);
+font-size: 0.28rem;
+border-radius: 0.08rem;
+}
+input::-webkit-input-placeholder{ /*WebKit browsers*/
+color:#babbbe;
+}
+input::-moz-input-placeholder{ /*Mozilla Firefox*/
+color: #babbbe;
+}
+input::-ms-input-placeholder{ /*Internet Explorer*/ 
+color: #babbbe;
+}
+input:focus {
+border-radius: 0.08rem;
+border: 0.01rem solid #060606;
+}
+.recharge-text {
+display: inline-block;
+margin-top: 0.11rem;
+line-height: 0.32rem;
+font-size: 0.24rem;
+font-weight: 400;
+color: #393d2b;
+}
+.recharge-btn {
+margin-top: 0.5rem;
+margin-bottom: 0.8rem;
+width: 5.98rem;
+height: 0.88rem;
+border-radius: 0.1rem;
+font-size: 0.32rem;
+color: #fff;
+background-color: #d0021b;
+opacity: 0.2;
+}
+.recharge-btn-true {
+background-color: #DF2C4B;
+opacity: 1; 
+}
+/* 会员部分 */
+.member-list {
+display: flex;
+}
+.list-item {
+flex: 1;
+}
+.wehotel-member h3 {
+font-weight: 700;
+text-align: center;
+font-size: 0.34rem;
+}
+.right {
+color: rgba(223,44,75,1);
+}
+.we-hotel {
+display: block;
+width: 5.67rem;
+height: 2.14rem;
+margin-bottom: 0.6rem;
+}
+.fm {
+display: block;
+width: 5.67rem;
+height: 3.45rem;
+margin-bottom: 1rem;
+}
+/* 兑换成功页面样式 */
+.success-pic {
+display: block;
+width: 2.75rem;
+height: 1.7rem;
+margin: 0 auto;
+margin-top: 1.38rem;
+margin-bottom: 0.47rem;
+background-image: url('../../../static/images/Group2.png');
+background-size: 2.75rem 1.7rem;
+}
+h2 {
+  margin: 0 auto;
+  font-size: .5rem;
+  line-height: .5rem;
+  text-align: center;
+}
+.count {
+  margin: 0 auto;
+  width: 3.73rem;
+  height: .84rem;
+  line-height: .42rem;
+  font-size: .28rem;
+  margin-top: .5rem;
+  margin-bottom: .94rem;
+}
+.line {
+  height: 0.01rem;
+  width: 6rem;
+  background-color: #d5b583;
+  margin: 0 auto;
+}
+h3 {
+  display: block;
+  text-align: center;
+  width: 3.76rem;
+  height: .6rem;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: .24rem;
+  padding: .36rem .3rem 2.65rem .3rem;
+}
+/* 输入框选中时候的状态 */
+.recharge .input-checked {
+  border: 0.01rem solid #df2c4b;
+  border-radius: 0.08rem;
+  background-color: #fef9f9;
+  color: #df2c4b;
+}
+/* 清除输入框按钮 */
+.QtclearBtn {
+  position: absolute;
+  right: 1rem;
+  top: 1.25rem;
+  width: .3rem;
+  height: .3rem;
+  border-radius: 50%;
+  background-image: url('../../../static/images/Group_clear.png');
+  background-size: .3rem .3rem;
+}
+.BtclearBtn {
+  position: absolute;
+  right: 1rem;
+  top: 3.1rem;
+  width: .3rem;
+  height: .3rem;
+  border-radius: 50%;
+  background-image: url('../../../static/images/Group_clear.png');
+  background-size: .3rem .3rem;
+}
+.ReclearBtn {
+position: absolute;
+right: 1rem;
+top: 5.66rem;
+width: .3rem;
+height: .3rem;
+border-radius: 50%;
+background-image: url('../../../static/images/Group_clear.png');
+background-size: .3rem .3rem;
+}

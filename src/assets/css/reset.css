@@ -1,0 +1,36 @@
+body,h2,h3,h4,h5,input {
+  margin: 0;
+  padding: 0;
+}
+html {
+    font-size: 100px;
+}
+body {
+    width: 7.5rem;
+    margin: 0 auto;
+    font-size: .12rem;
+}
+li {
+  list-style: none;
+}
+button {
+    border: 1px;
+    padding: 0
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+input:focus {
+    outline: none;
+}
+button {
+    outline: none;
+}
+#app {
+  width: 7.5rem;
+  margin: 0 auto;
+  /* font-size: 100px !important; */
+}
