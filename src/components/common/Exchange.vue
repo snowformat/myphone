@@ -29,7 +29,7 @@
         <span class="account left">充值兑换码</span>
       </div>
       <div>
-        <input v-model="ReValue" type="text" class="account-input" :class="{'input-checked': rechargeInfo}" @focus="handleFocus" placeholder="填写*位由数字、字母组成的兑换码" maxlength="22">
+        <input v-model="ReValue" type="text" class="account-input" :class="{'input-checked': rechargeInfo}" @focus="handleFocus" placeholder="填写21-22位由数字、字母组成的兑换码" maxlength="22">
         <button v-show="ReValue" @click="handleRcClick" class="ReclearBtn"></button>
       </div>
       <button class=" recharge-btn" :class="{'recharge-btn-true' : rechargeBtn }" @click="handleRecharge">兑换</button>
@@ -44,13 +44,13 @@
    </div>
 </template>
 <script>
+import resultInfo from '../../../src/api/index'
 export default {
   data () {
     return {
       rechargeError: false,
       rechargeUsed: false,
       rechargeCheck: false,
-      // reg: /^[1][3,4,5,7,8][0-9]{9}$/
       // 清空按钮
       QtClear: true,
       BtClear: true,
@@ -66,13 +66,13 @@ export default {
       return !/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.QtValue) && this.QtValue.split('').length !== 0
     },
     BtInfo () {
-      return !/^[1][3,4,5,7,9][0-9]{9}$/.test(this.BtValue) && this.BtValue.split('').length !== 0
+      return !/^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.BtValue) && this.BtValue.split('').length !== 0
     },
     rechargeInfo () {
       return !/^([1-9a-km-zA-HJ-NP-Z]){21,22}$/.test(this.ReValue) && this.ReValue.split('').length !== 0
     },
     rechargeBtn () {
-      return /^([1-9a-km-zA-HJ-NP-Z]){21,22}$/.test(this.ReValue) && /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.QtValue) && /^[1][3,4,5,7,9][0-9]{9}$/.test(this.BtValue)
+      return /^([1-9a-km-zA-HJ-NP-Z]){21,22}$/.test(this.ReValue) && /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.QtValue) && /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(this.BtValue)
     }
   },
   methods: {
@@ -82,31 +82,17 @@ export default {
       this.rechargeError = false
     },
     // 点击兑换按钮触发的事件验证
-    async handleRecharge () {
-      // 判断两个手机号是否都输入
-      if (!this.QtValue || !this.BtValue || !this.ReValue || this.QtValue !== this.BtValue) {
-        return
-      }
-      // 请求要传入的参数数据
+    handleRecharge () {
+      // 接口需要传入的数据
       const data = {code: this.ReValue,
         user_qingting_phone_number: this.QtValue,
         user_wehotel_phone_number: this.BtValue}
-      const response = await this.$axios.post('qingting-wehotel-handler/', JSON.stringify(data))
-      // 兑换码已使用
-      console.log(response.data)
-      if (response.data.code === 1) {
-        this.rechargeUsed = true
-        this.rechargeError = false
-      }
-      // 兑换码不存在
-      if (response.data.code === 2) {
-        this.rechargeError = true
-        this.rechargeUsed = false
-      }
-      // 兑换码正确
-      if (response.status === 1) {
-        this.$router.push({name: 'Success'})
-      }
+      resultInfo(data).then((info) => {
+        // console.log(info)
+        this.rechargeUsed = info.rechargeUsed
+        this.rechargeError = info.rechargeError
+        this.$router.push({name: info.router})
+      })
     },
     // 清空输入框方法
     handleQtClick () {
